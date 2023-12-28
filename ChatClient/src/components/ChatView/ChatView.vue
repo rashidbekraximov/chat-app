@@ -7,7 +7,7 @@
     ></ChatHeader>
     <ChatContent
       class="chat-content"
-      :messages="store.state.messages[props.selectedChat!.id]"
+      :messages="store.state.messages[props.selectedChat.id]"
     ></ChatContent>
     <ChatFooter style="height: 70px" @new-message="onSendMessage"></ChatFooter>
   </div>

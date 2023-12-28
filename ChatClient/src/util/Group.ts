@@ -8,7 +8,7 @@ export const getGroupById = async (
   id: string
 ): Promise<Group> => {
   if (store.state.groupById[id] == undefined) {
-    const rawResult = await axios.post("http://localhost:8080/get_group", id);
+    const rawResult = await axios.post("http://localhost:1010/get_group", id);
     store.state.groupById[id] = rawResult.data;
   }
   return store.state.groupById[id];
@@ -18,7 +18,7 @@ export const getGroupsOfUser = async (
   store: Store<StoreData>
 ): Promise<Group[]> => {
   const rawResult = await axios.post(
-    "http://localhost:8080/get_groups/user",
+    "http://localhost:1010/get_groups/user",
     store.state.user
   );
   return rawResult.data;
@@ -29,7 +29,7 @@ export const addGroup = async (
   groupName: string
 ): Promise<string> => {
   const rawResult = await axios.post(
-    "http://localhost:8080/new_group",
+    "http://localhost:1010/new_group",
     {
       usernames: usernames,
       groupName: groupName,

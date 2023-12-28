@@ -22,7 +22,7 @@ public class ChatController {
     private SimpMessagingTemplate simpMessagingTemplate;
     private final ArrayList<User> users = new ArrayList<>();
     private final HashMap<String, Group> groups = new HashMap<>() {{
-        put("public", new Group("public", "Public", new HashSet<>()));
+        put("public", new Group("public", "Sinfdoshlar", new HashSet<>()));
     }};
 
     /**

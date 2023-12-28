@@ -3,27 +3,27 @@
     <p class="is-italic has-text-centered">Conversation's beginning</p>
     <div v-for="message in messages" v-bind:key="message.message">
       <p
-        v-if="shouldDisplayDate(message, messages!)"
+        v-if="shouldDisplayDate(message, messages)"
         class="has-text-centered has-text-grey"
       >
         {{ getLocalTime(message.date) }}
       </p>
       <MyMessage
-        v-if="message.status == Status.MESSAGE && message.senderName == store.state.user!.username"
+        v-if="message.status === Status.MESSAGE && message.senderName === store.state.user.username"
         :message="message"
       ></MyMessage>
       <OtherMessage
-        v-else-if="message.status == Status.MESSAGE"
+        v-else-if="message.status === Status.MESSAGE"
         :message="message"
       ></OtherMessage>
       <p
-        v-else-if="message.status == Status.JOIN"
+        v-else-if="message.status === Status.JOIN"
         class="has-text-centered has-text-grey"
       >
         {{ message.senderName }} joined the chat!
       </p>
       <p
-        v-else-if="message.status == Status.LEAVE"
+        v-else-if="message.status === Status.LEAVE"
         class="has-text-centered has-text-grey"
       >
         {{ message.senderName }} left the chat :(
@@ -44,7 +44,7 @@ import { Status } from "@/types/Status";
 const store: Store<StoreData> = useStore();
 
 defineProps({
-  messages: Array<Message>,
+  messages: Array<Message>
 });
 </script>
 

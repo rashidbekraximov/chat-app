@@ -40,7 +40,7 @@ const store: Store<StoreData> = useStore();
 const emits = defineEmits(["close", "selectChat"]);
 
 const props = defineProps({
-  members: Array<string>,
+  members: Array<string>
 });
 
 const groupName: Ref<string> = ref("");
